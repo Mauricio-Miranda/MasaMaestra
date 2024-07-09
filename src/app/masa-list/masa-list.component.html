@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Tipo</th>
+            <th>Descripcion</th>
+            <th>Precio</th>            
+        </tr>
+    </thead>
+    <tbody>
+        @for(masa of masas; track masa.tipo){
+            <tr [ngClass]="{promo: masa.promo}">
+                <td><img [src]="masa.imagen" [alt]="masa.tipo"></td>
+                <td>{{masa.tipo}}</td>
+                <td>{{masa.descripcion}}</td>
+                <td>{{masa.precio |currency}}</td>
+
+                @if(masa.stock == false){
+                    <td><span class="badge text-bg-warning"> Sin Stock</span></td>
+                }
+            </tr>            
+        } @empty {
+            <tr>
+                <td colspan="4">No hay nada para mostrar</td>
+            </tr>
+        }  
+        
+    </tbody>
+</table>
