@@ -1,20 +1,27 @@
-<table class="table">
+<div class="lista-container">
+<h1>Nuestras Maestras</h1>
+<table class="table text-center table align-middle">
     <thead>
         <tr>
             <th>Imagen</th>
             <th>Tipo</th>
             <th>Descripcion</th>
-            <th>Precio</th>            
+            <th>Precio</th>
+            <th>Cantidad</th>            
         </tr>
     </thead>
     <tbody>
         @for(masa of masas; track masa.tipo){
             <tr [ngClass]="{promo: masa.promo}">
-                <td><img [src]="masa.imagen" [alt]="masa.tipo"></td>
+                <td><img width="100" [src]="masa.imagen" [alt]="masa.tipo"></td>
                 <td>{{masa.tipo}}</td>
                 <td>{{masa.descripcion}}</td>
                 <td>{{masa.precio |currency}}</td>
 
+                @if (masa.stock) {
+                    <td> <app-input-valor [masa]="masa"></app-input-valor></td>
+                    <td><button class="btn btn-outline-secondary btn-sm" (click)="agregarAlCarrito(masa)">Agregar al carro</button></td>
+            }
                 @if(masa.stock == false){
                     <td><span class="badge text-bg-warning"> Sin Stock</span></td>
                 }
@@ -27,3 +34,4 @@
         
     </tbody>
 </table>
+</div>

@@ -1,3 +1,39 @@
-<p>carrito-compra works!</p>
 
-<h1>este es el componente del carrito</h1>
+
+<div class="carrito-container">
+    <h1>TU Carrito</h1>
+        
+    <table class="table text-center table align-middle">
+        <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Tipo</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of listaDeCompras$ | async">
+            <td><img width="80" [src]="item.imagen" [alt]="item.tipo"></td>
+            <td>{{ item.tipo }}</td>
+            <td>{{ item.precio | currency }}</td>
+            <td>{{ item.cant }}</td>
+            <td>{{ item.precio * item.cant | currency }}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Total General:</td>
+            <td>{{ getTotalGeneral() | currency }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="centrarBoton">
+        <button class="btn btn-outline-secondary btn-sm" (click)="comprar()">Yo Pago!</button>
+    </div>
+    
+    
+</div>
+
+
+  
+

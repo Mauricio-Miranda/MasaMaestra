@@ -1,0 +1,26 @@
+.container {
+    max-width: 800px;
+    margin: 80px auto 20px; 
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 0.8rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000; 
+}
